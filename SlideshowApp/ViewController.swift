@@ -95,6 +95,21 @@ class ViewController: UIViewController {
 
     // セグエを使用して画面を遷移
     @IBAction func tapImage(_ sender: Any) {
+  
+  // nil かどうかのチェックを行う
+  if self.timer != nil {
+        
+        // タイマーを停止する
+        timer.invalidate()
+        timer = nil
+        
+        autoNext.isEnabled = true
+        autoBack.isEnabled = true
+        
+        playButton.setTitle("再生", for: .normal)
+
+        }
+        
         self.performSegue(withIdentifier: "movewind", sender: nil)
     }
     
@@ -119,7 +134,7 @@ class ViewController: UIViewController {
         // segueから遷移先のResultViewControllerを取得する
         let resultViewController:ResultViewController = segue.destination as! ResultViewController
         // 遷移先のResultViewControllerで宣言しているx値を文字列として代入して渡す
-        resultViewController.x = imageNames[index]
+        resultViewController.sendImage = imageNames[index]
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {

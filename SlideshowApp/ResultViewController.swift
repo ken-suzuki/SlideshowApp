@@ -13,12 +13,12 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var outImage: UIImageView!
     
     // 受け取るためのプロパティ（変数）を宣言しておく
-    var x:String?
+    var sendImage:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        outImage.image = UIImage(named: x!)
+        outImage.image = UIImage(named: sendImage!)
     }
 
     override func didReceiveMemoryWarning() {
